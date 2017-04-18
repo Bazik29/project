@@ -22,11 +22,11 @@ Item {
         anchors.leftMargin: 40
         anchors.topMargin: 80
         anchors.bottomMargin: 150
-        //interactive: false
+        interactive: true
         currentIndex: 0
         anchors.fill: parent
         Repeater {
-            model: 2 // число страниц
+            model: 4 // число страниц
             Loader {
                 active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
                 source: "Page"+ (view.currentIndex + 1) +".qml"

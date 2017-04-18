@@ -4,5 +4,7 @@
         <file>Theory/CustButton.qml</file>
         <file>Theory/Page1.qml</file>
         <file>Theory/Page2.qml</file>
+        <file>Theory/Page3.qml</file>
+        <file>Theory/Page4.qml</file>
     </qresource>
 </RCC>

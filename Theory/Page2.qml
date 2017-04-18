@@ -7,18 +7,35 @@ Item {
         padding: 12
         GroupBox {
             property int answer: 0
-            title: "Свойство, когда по данному алгоритму должна решаться не одна, а целый класс подобных задач"
+            title: "Выбирите свойства, характерные для алогритма."
             anchors.horizontalCenter: parent.horizontalCenter
 
             Column {
                 spacing: 20
                 width: 300
 
-                RadioButton {
-                    text: "Результативность"
-                    checked: true
-                    width: parent.width
-                }
+                    CheckBox
+                    {
+                        text: "Дискретность"
+                        checked: false
+                    }
+                    CheckBox
+                    {
+                        text: "Упругость"
+                        checked: false
+                    }
+                    CheckBox
+                    {
+                        text: "Детерминированность"
+                        checked:false
+                    }
+                    CheckBox
+                    {
+                        text: "Гибкость"
+                        checked:false
+                    }
+
+
             }
         }
     }
