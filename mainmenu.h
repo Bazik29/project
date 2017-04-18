@@ -17,6 +17,7 @@ public:
     ~MainMenu();
 signals:
     void to_theory();
+
 private slots:
     void on_TheoryButton_clicked();
 

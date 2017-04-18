@@ -4,11 +4,13 @@
 #include <QWidget>
 #include <QQuickWidget>
 
+
 class TheoryScreen : public QWidget
 {
     Q_OBJECT
 public:
     explicit TheoryScreen(QWidget *parent = 0);
+    ~TheoryScreen();
 
 signals:
     void to_menu();

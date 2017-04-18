@@ -8,8 +8,9 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     menuScreen(new MainMenu(this)),
     theoryScreen(new TheoryScreen(this))
 {
+    setWindowTitle("Название!!!!");
     QGridLayout *layout(new QGridLayout(this));
-
+    layout->setMargin(0);
     layout->addWidget(menuScreen, 0, 0, 1, 1);
     layout->addWidget(theoryScreen, 0, 0, 1, 1);
 
