@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Theory/FirstPage.qml</file>
+        <file>Theory/CustButton.qml</file>
+        <file>Theory/TheoryScript.js</file>
+    </qresource>
+</RCC>
