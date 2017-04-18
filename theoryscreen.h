@@ -17,7 +17,7 @@ signals:
 public slots:
 
 private:
-    QQuickWidget* quickWidget;
+    QQuickWidget *quickWidget;
 };
 
 #endif // THEORYSCREEN_H

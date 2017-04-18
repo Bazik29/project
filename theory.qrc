@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>Theory/FirstPage.qml</file>
         <file>Theory/CustButton.qml</file>
+        <file>Theory/Page1.qml</file>
+        <file>Theory/Page2.qml</file>
     </qresource>
 </RCC>

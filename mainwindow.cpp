@@ -21,6 +21,12 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     theoryScreen->hide();
 }
 
+MainWindow::~MainWindow()
+{
+    delete theoryScreen;
+    delete menuScreen;
+}
+
 void MainWindow::to_menu()
 {
     theoryScreen->hide();
