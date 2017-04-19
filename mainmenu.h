@@ -21,9 +21,7 @@ signals:
     void to_code();
 private slots:
     void on_TheoryButton_clicked();
-
     void on_BlockButton_clicked();
-
     void on_CodeButton_clicked();
 
 private:

@@ -4,7 +4,6 @@ import QtQuick.Controls 2.1
 
 Item {
     id: theory
-
     Connections {
         target: TheoryScreen
     }
@@ -21,8 +20,10 @@ Item {
         anchors.leftMargin: 36
         anchors.topMargin: 63
         anchors.bottomMargin: 63
+        spacing: 40
 
         Loader {
+            id: load1
             active: view.currentIndex == 0 || view.currentIndex == 1
             source: "Page1.qml"
         }
@@ -110,6 +111,25 @@ Item {
         x: 664
         y: 543
         text: qsTr("Продолжить")
-        onClicked: view.currentIndex++
+        onClicked: {
+            if (view.currentItem.item) {
+                if (view.currentItem.item.test) {
+                    if (view.currentItem.item.check()) {view.currentIndex++; test.text = "";}
+                    else test.text = "Не Угадал!";
+                }
+                else {
+                    view.currentIndex++;
+                }
+            }
+        }
+
+    }
+
+    Text {
+        id: test
+        x: 293
+        y: 18
+        text: qsTr("")
+        font.pixelSize: 25
     }
 }

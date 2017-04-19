@@ -1,42 +1,47 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.1
 
-Item {
-    Pane {
-        id: firstPaged
-        padding: 12
-        GroupBox {
-            property int answer: 0
-            title: "Выбирите свойства, характерные для алогритма."
-            anchors.horizontalCenter: parent.horizontalCenter
 
-            Column {
-                spacing: 20
-                width: 300
+Frame {
+    id: page2
+    anchors.fill: parent
+    property bool test: true
+    function check(){
+        return ans1.checked && !ans2.checked && !ans3.checked && !ans4.checked;
+    }
 
-                    CheckBox
-                    {
-                        text: "Дискретность"
-                        checked: false
-                    }
-                    CheckBox
-                    {
-                        text: "Упругость"
-                        checked: false
-                    }
-                    CheckBox
-                    {
-                        text: "Детерминированность"
-                        checked:false
-                    }
-                    CheckBox
-                    {
-                        text: "Гибкость"
-                        checked:false
-                    }
-
-
-            }
+    Column {
+        anchors.fill: parent
+        spacing: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+        Text {
+            width: parent.width
+            wrapMode:Text.WordWrap
+            text: qsTr("<h3>Выбирите свойства, характерные для алогритма</h3>")
+        }
+        CheckBox
+        {
+            id: ans1
+            text: "Дискретность"
+            checked: false
+        }
+        CheckBox
+        {
+            id: ans2
+            text: "Упругость"
+            checked: false
+        }
+        CheckBox
+        {
+            id: ans3
+            text: "Детерминированность"
+            checked:false
+        }
+        CheckBox
+        {
+            id: ans4
+            text: "Гибкость"
+            checked:false
         }
     }
 }
