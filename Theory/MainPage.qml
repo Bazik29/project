@@ -23,7 +23,6 @@ Item {
         spacing: 40
 
         Loader {
-            id: load1
             active: view.currentIndex == 0 || view.currentIndex == 1
             source: "Page1.qml"
         }
@@ -83,13 +82,8 @@ Item {
             width: 20
             height: 20
             radius: 10
-            color: switch(index){
-                       case 0: "red"; break;
-                       case 1: "green"; break;
-                       default: "blue"; break;
-                   }
+            color: (index % 2 == 0) ? "blue" : "green"
             opacity: index === view.currentIndex ? 0.95 : pressed ? 0.7 : 0.45
-
             Behavior on opacity {
                 OpacityAnimator {
                     duration: 100
@@ -107,7 +101,6 @@ Item {
     }
 
     Button {
-        id: button
         x: 664
         y: 543
         text: qsTr("Продолжить")
