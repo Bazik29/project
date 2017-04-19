@@ -13,28 +13,59 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     layout->setMargin(0);
     layout->addWidget(menuScreen, 0, 0, 1, 1);
     layout->addWidget(theoryScreen, 0, 0, 1, 1);
+    //layout->addWidget(blockScreen, 0, 0, 1, 1);
+    //layout->addWidget(codeScreen, 0, 0, 1, 1);
 
-    connect(menuScreen, SIGNAL(to_theory()), SLOT(to_theory()));
-    connect(theoryScreen, SIGNAL(to_menu()), SLOT(to_menu()));
 
-    menuScreen->show();
-    theoryScreen->hide();
+    connect(menuScreen, SIGNAL(to_theory()), SLOT(show_theory()));
+    connect(menuScreen, SIGNAL(to_block()), SLOT(show_block()));
+    connect(menuScreen, SIGNAL(to_code()), SLOT(show_code()));
+
+    connect(theoryScreen, SIGNAL(to_menu()), SLOT(show_menu()));
+
+    //connect(blockScreen, SIGNAL(to_menu()), SLOT(show_menu()));
+    //connect(codeScreen, SIGNAL(to_menu()), SLOT(show_menu()));
+
+    show_menu();
 }
 
 MainWindow::~MainWindow()
 {
-    delete theoryScreen;
     delete menuScreen;
+    delete theoryScreen;
+    //delete blockScreen;
+    //delete codeScreen;
 }
 
-void MainWindow::to_menu()
+void MainWindow::show_menu()
 {
     theoryScreen->hide();
+    //blockScreen->hide();
+    //codeScreen->hide();
     menuScreen->show();
 }
 
-void MainWindow::to_theory()
+void MainWindow::show_theory()
 {
     menuScreen->hide();
+    //blockScreen->hide();
+    //codeScreen->hide();
     theoryScreen->show();
+}
+
+void MainWindow::show_block()
+{
+    //menuScreen->hide();
+    //codeScreen->hide();
+    //theoryScreen->hide();
+    //blockScreen->show();
+}
+
+void MainWindow::show_code()
+{
+
+    //menuScreen->hide();
+    //theoryScreen->hide();
+    //blockScreen->hide();
+    //codeScreen->show();
 }

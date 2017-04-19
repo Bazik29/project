@@ -12,7 +12,7 @@ TheoryScreen::TheoryScreen(QWidget *parent) : QWidget(parent),
     QQmlContext *context = quickWidget->rootContext();
     context->setContextProperty("TheoryScreen", this);
 
-    quickWidget->setSource(QUrl("qrc:/Theory/FirstPage.qml"));
+    quickWidget->setSource(QUrl("qrc:/Theory/MainPage.qml"));
     quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 }
 

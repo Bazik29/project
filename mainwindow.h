@@ -3,8 +3,10 @@
 
 #include <QWidget>
 
-class TheoryScreen;
 class MainMenu;
+class TheoryScreen;
+class BlockScreen;
+class CodeScreen;
 
 class MainWindow : public QWidget
 {
@@ -15,13 +17,15 @@ public:
 signals:
 
 public slots:
-    void to_menu();
-    void to_theory();
-    //void to_block();
-    //void to_code();
+    void show_menu();
+    void show_theory();
+    void show_block();
+    void show_code();
 private:
     MainMenu *menuScreen = 0;
     TheoryScreen *theoryScreen = 0;
+    //BlockScreen *blockScreen = 0;
+    //CodeScreen *codeScreen = 0;
 };
 
 #endif // MAINWINDOW_H

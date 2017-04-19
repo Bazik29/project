@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
-        <file>Theory/FirstPage.qml</file>
         <file>Theory/CustButton.qml</file>
+        <file>Theory/MainPage.qml</file>
         <file>Theory/Page1.qml</file>
         <file>Theory/Page2.qml</file>
         <file>Theory/Page3.qml</file>

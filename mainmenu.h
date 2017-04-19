@@ -17,9 +17,14 @@ public:
     ~MainMenu();
 signals:
     void to_theory();
-
+    void to_block();
+    void to_code();
 private slots:
     void on_TheoryButton_clicked();
+
+    void on_BlockButton_clicked();
+
+    void on_CodeButton_clicked();
 
 private:
     Ui::MainMenu *ui;
