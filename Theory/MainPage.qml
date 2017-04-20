@@ -102,7 +102,7 @@ Item {
             active: view.currentIndex == 2 || view.currentIndex == 3// || view.currentIndex == 4
             source: "Page4.qml"
         }
-        /*
+
         Loader {
             active: view.currentIndex == 3 || view.currentIndex == 4 || view.currentIndex == 5
             source: "Page5.qml"
@@ -111,6 +111,7 @@ Item {
             active: view.currentIndex == 4 || view.currentIndex == 5 || view.currentIndex == 6
             source: "Page6.qml"
         }
+        /*
         Loader {
             active: view.currentIndex == 5 || view.currentIndex == 6 || view.currentIndex == 7
             source: "Page7.qml"

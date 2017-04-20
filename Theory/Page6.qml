@@ -7,7 +7,7 @@ Frame {
     anchors.fill: parent
     property bool test: true
     function check() {
-        return ans4.checked;
+        return ans3.checked;
     }
     function reset() {
         ans1.checked = false;
@@ -23,32 +23,37 @@ Frame {
         Text {
             width: parent.width
             wrapMode:Text.WordWrap
-            text: qsTr("<h3>Выбирите свойства, характерные для алогритма</h3>")
+            text: qsTr("<h3>Какой символ обозначает блок 'ввод-вывод' в блок-схеме?</h3>")
         }
          RadioButton
          {
             id:ans1
-            text: "Графический"
             width: parent.width
+            anchors.left: parent.left
+            Text{ text: "<img src='images/p6.4.PNG'>"}
          }
          RadioButton
          {
             id:ans2
-            text: "Псевдокод"
             width: parent.width
+            anchors.left: parent.left
+            Text{ text: "<img src='images/p6.3.png'>"}
          }
          RadioButton
          {
             id:ans3
-            text: "на Языке программирования"
             width: parent.width
+            anchors.left: parent.left
+            Text{ text: "<img src='images/p6.1.png'>"}
          }
          RadioButton
          {
             id:ans4
-            text: "все вышеперечисленное"
             width: parent.width
+            anchors.left: parent.left
+            Text{ text: "<img src='images/p6.2.PNG'>"}
          }
+
     }
 }
 
