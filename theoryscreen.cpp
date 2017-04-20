@@ -1,10 +1,13 @@
 #include "theoryscreen.h"
 #include <QGridLayout>
 #include <QQmlContext>
+#include <QQmlProperty>
+#include <QFile>
 
 TheoryScreen::TheoryScreen(QWidget *parent) : QWidget(parent),
     quickWidget(new QQuickWidget(this))
 {
+    loadFromFile();
     QGridLayout *layout(new QGridLayout(this));
     layout->setMargin(0);
     layout->addWidget(quickWidget, 0, 0, 1, 1);
@@ -19,4 +22,41 @@ TheoryScreen::TheoryScreen(QWidget *parent) : QWidget(parent),
 TheoryScreen::~TheoryScreen()
 {
     delete quickWidget;
+}
+
+void TheoryScreen::setPage(int index)
+{
+    page = index;
+    writeToFile(page);
+}
+
+int TheoryScreen::getPage()
+{
+    return page;
+}
+
+void TheoryScreen::loadFromFile()
+{
+    QFile fileIn(FileName);
+    if (fileIn.open(QIODevice::ReadOnly)) {
+        QTextStream readStream(&fileIn);
+        readStream >> page;
+        fileIn.close();
+    }
+    else page = 0;
+}
+
+void TheoryScreen::writeToFile(int num)
+{
+    QFile fileOut(FileName);
+    if (fileOut.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+        QTextStream writeStream(&fileOut);
+        writeStream << num;
+        fileOut.close();
+    }
+}
+
+void TheoryScreen::resetProgress()
+{
+    writeToFile(0);
 }

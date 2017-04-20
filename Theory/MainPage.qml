@@ -1,17 +1,80 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.1
 
+// TheoryScreen
 
 Item {
     id: theory
-    Connections {
-        target: TheoryScreen
+    property int maxpageopen: TheoryScreen.getPage()
+
+    function updateMaxPage(){
+        if (view.currentIndex > maxpageopen) maxpageopen = view.currentIndex;
     }
+
+    function changePage(ind){
+        if (ind < 0) return;
+        if(ind <= maxpageopen && ind !== view.currentIndex) {
+            view.setCurrentIndex(ind);
+            if (ind+1 != view.count) butnext.visible = true;
+            else butnext.visible = false;
+        }
+    }
+
+    function nextpage(){
+        if (view.currentIndex+1 != view.count)
+            if (view.currentIndex+2 == view.count){
+                view.currentIndex++;
+                updateMaxPage()
+                butnext.visible = false;
+            }
+            else {
+                view.currentIndex++;
+                updateMaxPage();
+            }
+    }
+
+    function checkAndNext(){
+        if (butnext.bNext) {    // Продолжить
+            if (view.currentItem.item) {
+                if (view.currentItem.item.test) {
+                    if (view.currentItem.item.check()) {
+                        nextpage();
+                    }
+                    else {
+                        butnext.bNext = false;
+                        uncorrect.visible = true;
+                        butnext.text = "Повторить";
+                    }
+                }
+                else
+                    nextpage();
+            }
+        }
+        else {      // Повторить
+            butnext.text = "Продолжить";
+            uncorrect.visible = false;
+            resetAnswerOnCurrentPage();
+            butnext.bNext = true;
+        }
+    }
+
+    function resetAnswerOnCurrentPage(){
+        if (view.currentItem.item && view.currentItem.item.test){
+            view.currentItem.item.reset()
+        }
+    }
+
     Button {
-        x: 36
-        y: 8
         text: "Меню"
-        onClicked: TheoryScreen.to_menu()
+        anchors.left: parent.left
+        anchors.leftMargin: 36
+        anchors.top: parent.top
+        anchors.topMargin: 8
+        onClicked: {
+            TheoryScreen.setPage(maxpageopen);
+            TheoryScreen.to_menu();
+            view.currentItem = 0;
+        }
     }
     SwipeView {
         id:view
@@ -21,6 +84,7 @@ Item {
         anchors.topMargin: 63
         anchors.bottomMargin: 63
         spacing: 40
+        currentIndex: 0
 
         Loader {
             active: view.currentIndex == 0 || view.currentIndex == 1
@@ -65,57 +129,103 @@ Item {
         }
         */
     }
+
     PageIndicator {
         x: 47
-        y: 553
         width: 54
-        anchors.horizontalCenterOffset: 0
-        anchors.bottomMargin: 27
+        anchors.horizontalCenter: view.horizontalCenter
+        anchors.top: view.bottom
+        anchors.topMargin: 16
 
         interactive: true
         count: view.count
         currentIndex: view.currentIndex
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
 
         delegate: Rectangle{
-            width: 20
-            height: 20
-            radius: 10
+            anchors.verticalCenter: parent.verticalCenter
+            width: (index === view.currentIndex) ? 22 : 18
+            height: (index === view.currentIndex) ? 22 : 18
+            radius: (index === view.currentIndex) ? 11 : 9
             color: (index % 2 == 0) ? "blue" : "green"
-            opacity: index === view.currentIndex ? 0.95 : pressed ? 0.7 : 0.45
+            border {
+                width: (index === view.currentIndex) ? 1 : 1;
+                color: "silver";
+            }
+
+            opacity: {
+                if (index === view.currentIndex) 1
+                else
+                    if (index < maxpageopen) 0.7
+                    else 0.4
+
+            }
             Behavior on opacity {
                 OpacityAnimator {
                     duration: 100
                 }
             }
+
             MouseArea {
                 anchors.fill: parent
-                onClicked: {
-                    if(index !== view.currentIndex) {
-                        view.setCurrentIndex(index);
-                    }
-                }
+                onClicked: changePage(index)
             }
         }
     }
 
     Button {
+        id: butnext
+        property bool bNext: true
         x: 664
-        y: 543
-        text: qsTr("Продолжить")
-        onClicked: {
-            if (view.currentItem.item) {
-                if (view.currentItem.item.test) {
-                    if (view.currentItem.item.check()) {view.currentIndex++; test.text = "";}
-                    else test.text = "Не Угадал!";
-                }
-                else {
-                    view.currentIndex++;
-                }
-            }
+        y: 549
+        text: "Продолжить"
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 11
+        anchors.right: parent.right
+        anchors.rightMargin: 36
+        onClicked: checkAndNext()
+    }
+    Frame {
+        id: uncorrect
+        x: 527
+        y: 490
+        width: 215
+        height: 35
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 75
+        anchors.right: parent.right
+        anchors.rightMargin: 58
+        enabled: true
+        padding: 1
+        visible: false
+        Text {
+            color: "red"
+            text: "Неправильно"
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 5
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+            anchors.top: parent.top
+            anchors.topMargin: 5
+            font.pixelSize: 20
         }
 
+        Button {
+            x: 163
+            width: 73
+            text: "Назад"
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 5
+            anchors.right: parent.right
+            anchors.rightMargin: 5
+            anchors.top: parent.top
+            anchors.topMargin: 5
+            onClicked: {
+                resetAnswerOnCurrentPage();
+                changePage(view.currentIndex-1);
+                uncorrect.visible = false;
+                butnext.text = "Продолжить";
+            }
+        }
     }
 
     Text {

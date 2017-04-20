@@ -6,8 +6,14 @@ Frame {
     id: page2
     anchors.fill: parent
     property bool test: true
-    function check(){
+    function check() {
         return ans1.checked && !ans2.checked && !ans3.checked && !ans4.checked;
+    }
+    function reset() {
+        ans1.checked = false;
+        ans2.checked = false;
+        ans3.checked = false;
+        ans4.checked = false;
     }
 
     Column {
