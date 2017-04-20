@@ -3,7 +3,7 @@ import QtQuick.Controls 2.1
 
 
 Frame {
-    id: page2
+    id: page4
     anchors.fill: parent
     property bool test: true
     function check() {
@@ -18,12 +18,12 @@ Frame {
 
     Column {
         anchors.fill: parent
-        spacing: 20
+        spacing: 10
         anchors.horizontalCenter: parent.horizontalCenter
         Text {
             width: parent.width
             wrapMode:Text.WordWrap
-            text: qsTr("<h3>Выбирите свойства, характерные для алогритма</h3>")
+            text: qsTr("<h3>Какие бывают способы представления алгоритма?</h3>")
         }
          RadioButton
          {
@@ -40,13 +40,13 @@ Frame {
          RadioButton
          {
             id:ans3
-            text: "на Языке программирования"
+            text: "На языке программирования"
             width: parent.width
          }
          RadioButton
          {
             id:ans4
-            text: "все вышеперечисленное"
+            text: "Все вышеперечисленное"
             width: parent.width
          }
     }

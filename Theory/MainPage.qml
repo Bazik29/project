@@ -40,7 +40,7 @@ Item {
                     if (view.currentItem.item.check()) {
                         nextpage();
                     }
-                    else {
+                    else { // Неправильный ответ
                         butnext.bNext = false;
                         uncorrect.visible = true;
                         butnext.text = "Повторить";
@@ -73,7 +73,7 @@ Item {
         onClicked: {
             TheoryScreen.setPage(maxpageopen);
             TheoryScreen.to_menu();
-            view.currentItem = 0;
+            view.currentIndex = 0;
         }
     }
     SwipeView {
@@ -85,7 +85,7 @@ Item {
         anchors.bottomMargin: 63
         spacing: 40
         currentIndex: 0
-
+        interactive: false
         Loader {
             active: view.currentIndex == 0 || view.currentIndex == 1
             source: "Page1.qml"
@@ -99,7 +99,7 @@ Item {
             source: "Page3.qml"
         }
         Loader {
-            active: view.currentIndex == 2 || view.currentIndex == 3// || view.currentIndex == 4
+            active: view.currentIndex == 2 || view.currentIndex == 3 || view.currentIndex == 4
             source: "Page4.qml"
         }
 
@@ -133,8 +133,9 @@ Item {
 
     PageIndicator {
         x: 47
-        width: 54
-        anchors.horizontalCenter: view.horizontalCenter
+        width: 148
+        height: 34
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: view.bottom
         anchors.topMargin: 16
 
@@ -168,7 +169,7 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: changePage(index)
+                onClicked: if (!uncorrect.visible) changePage(index)
             }
         }
     }
@@ -198,6 +199,7 @@ Item {
         enabled: true
         padding: 1
         visible: false
+        focus: true
         Text {
             color: "red"
             text: "Неправильно"
@@ -225,6 +227,7 @@ Item {
                 changePage(view.currentIndex-1);
                 uncorrect.visible = false;
                 butnext.text = "Продолжить";
+                butnext.bNext = true;
             }
         }
     }

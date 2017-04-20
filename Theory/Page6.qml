@@ -18,42 +18,49 @@ Frame {
 
     Column {
         anchors.fill: parent
-        spacing: 20
-        anchors.horizontalCenter: parent.horizontalCenter
+        spacing: 35
+        //anchors.horizontalCenter: parent.horizontalCenter
         Text {
             width: parent.width
             wrapMode:Text.WordWrap
             text: qsTr("<h3>Какой символ обозначает блок 'ввод-вывод' в блок-схеме?</h3>")
         }
-         RadioButton
-         {
+        RadioButton {
             id:ans1
             width: parent.width
             anchors.left: parent.left
-            Text{ text: "<img src='images/p6.4.PNG'>"}
-         }
-         RadioButton
-         {
+            Text {
+                anchors.verticalCenter: parent.verticalCenter
+                text: "<img src='images/p6.4.PNG'>"
+            }
+        }
+        RadioButton {
             id:ans2
             width: parent.width
             anchors.left: parent.left
-            Text{ text: "<img src='images/p6.3.png'>"}
-         }
-         RadioButton
-         {
+            Text {
+                anchors.verticalCenter: parent.verticalCenter
+                text: "<img src='images/p6.3.png'>"
+            }
+        }
+        RadioButton {
             id:ans3
             width: parent.width
             anchors.left: parent.left
-            Text{ text: "<img src='images/p6.1.png'>"}
-         }
-         RadioButton
-         {
+            Text {
+                anchors.verticalCenter: parent.verticalCenter
+                text: "<img src='images/p6.1.png'>"
+            }
+        }
+        RadioButton {
             id:ans4
             width: parent.width
             anchors.left: parent.left
-            Text{ text: "<img src='images/p6.2.PNG'>"}
-         }
-
+            Text {
+                anchors.verticalCenter: parent.verticalCenter
+                text: "<img src='images/p6.2.PNG'>"
+            }
+        }
     }
 }
 

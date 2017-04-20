@@ -18,7 +18,7 @@ Frame {
 
     Column {
         anchors.fill: parent
-        spacing: 20
+        spacing: 10
         anchors.horizontalCenter: parent.horizontalCenter
         Text {
             width: parent.width
