@@ -18,7 +18,7 @@ Frame {
 
     Column {
         anchors.fill: parent
-        spacing: 35
+        spacing: 30
 
         Text {
             width: parent.width
@@ -28,7 +28,7 @@ Frame {
         RadioButton
         {
            id:ans1
-           text: "Dыбор алгоритмов"
+           text: "Выбор алгоритмов"
            width: parent.width
         }
         RadioButton

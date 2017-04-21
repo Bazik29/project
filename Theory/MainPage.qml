@@ -139,7 +139,7 @@ Item {
 
     PageIndicator {
         x: 47
-        width: 148
+        width: 268
         height: 34
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: view.bottom
