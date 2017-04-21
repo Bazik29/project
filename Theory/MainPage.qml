@@ -111,7 +111,7 @@ Item {
             active: view.currentIndex == 4 || view.currentIndex == 5 || view.currentIndex == 6
             source: "Page6.qml"
         }
-        /*
+
         Loader {
             active: view.currentIndex == 5 || view.currentIndex == 6 || view.currentIndex == 7
             source: "Page7.qml"
@@ -120,15 +120,21 @@ Item {
             active: view.currentIndex == 6 || view.currentIndex == 7 || view.currentIndex == 8
             source: "Page8.qml"
         }
+
         Loader {
             active: view.currentIndex == 7 || view.currentIndex == 8 || view.currentIndex == 9
             source: "Page9.qml"
         }
+
         Loader {
             active: view.currentIndex == 8 || view.currentIndex == 9 || view.currentIndex == 10
             source: "Page10.qml"
         }
-        */
+        Loader {
+            active: view.currentIndex == 9 || view.currentIndex == 10|| view.currentIndex == 11
+            source: "Page11.qml" //end slide
+        }
+
     }
 
     PageIndicator {

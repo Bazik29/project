@@ -14,5 +14,15 @@
         <file>Theory/images/p6.2.PNG</file>
         <file>Theory/images/p6.3.png</file>
         <file>Theory/images/p6.4.PNG</file>
+        <file>Theory/Page7.qml</file>
+        <file>Theory/Page8.qml</file>
+        <file>Theory/images/p7.png</file>
+        <file>Theory/Page9.qml</file>
+        <file>Theory/Page10.qml</file>
+        <file>Theory/images/p9.2.PNG</file>
+        <file>Theory/images/p9.1.PNG</file>
+        <file>Theory/images/9.3.PNG</file>
+        <file>Theory/images/9.4.PNG</file>
+        <file>Theory/Page11.qml</file>
     </qresource>
 </RCC>
