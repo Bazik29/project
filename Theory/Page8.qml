@@ -30,7 +30,6 @@ Frame {
                 text: qsTr("<h3>Впишите недостающий блок псевдокода</h3>")
             }
             Text {
-                id:text
                 font.pointSize:12
                 color: "black"
                 width: parent.width

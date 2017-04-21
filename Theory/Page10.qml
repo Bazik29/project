@@ -7,7 +7,8 @@ Frame {
     anchors.fill: parent
     property bool test: true
     function check() {
-        return !ans1.checked && ans2.checked && !ans3.checked && !ans4.checked;
+        //return !ans1.checked && ans2.checked && !ans3.checked && !ans4.checked;
+        return ans2.checked;
     }
     function reset() {
         ans1.checked = false;
@@ -18,12 +19,12 @@ Frame {
 
     Column {
         anchors.fill: parent
-        spacing: 30
+        spacing: 10
 
         Text {
             width: parent.width
             wrapMode:Text.WordWrap
-            text: qsTr("<h3>Алгоритм структуры «ветвление» предусматривает?</h3>")
+            text: qsTr("<h3>Алгоритм структуры «ветвление» предусматривает:</h3>")
         }
         RadioButton
         {
@@ -34,7 +35,7 @@ Frame {
         RadioButton
         {
            id:ans2
-           text: "Выбор команд(действий)" //true
+           text: "Выбор команд (действий)" //true
            width: parent.width
         }
 

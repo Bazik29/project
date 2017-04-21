@@ -7,7 +7,7 @@ Frame {
     anchors.fill: parent
     property bool test: true
     function check() {
-        return ans3.checked;
+        return ans1.checked;
     }
     function reset() {
         ans1.checked = false;

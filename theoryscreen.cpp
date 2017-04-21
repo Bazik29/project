@@ -21,13 +21,13 @@ TheoryScreen::TheoryScreen(QWidget *parent) : QWidget(parent),
 
 TheoryScreen::~TheoryScreen()
 {
+    writeToFile(page);
     delete quickWidget;
 }
 
 void TheoryScreen::setPage(int index)
 {
     page = index;
-    writeToFile(page);
 }
 
 int TheoryScreen::getPage()
@@ -58,5 +58,6 @@ void TheoryScreen::writeToFile(int num)
 
 void TheoryScreen::resetProgress()
 {
-    writeToFile(0);
+    page = 0;
+    writeToFile(page);
 }

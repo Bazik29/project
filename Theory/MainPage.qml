@@ -6,10 +6,11 @@ import QtQuick.Controls 2.1
 Item {
     id: theory
     // Проверка превышения максимума страниц
-    property int maxpageopen: (TheoryScreen.getPage() < 6) ? TheoryScreen.getPage() : 0
+    property int maxpageopen: (TheoryScreen.getPage() < 11) ? TheoryScreen.getPage() : 0
 
     function updateMaxPage(){
         if (view.currentIndex > maxpageopen) maxpageopen = view.currentIndex;
+        TheoryScreen.setPage(maxpageopen);
     }
 
     function changePage(ind){
@@ -55,8 +56,8 @@ Item {
         else {      // Повторить
             butnext.text = "Продолжить";
             uncorrect.visible = false;
-            resetAnswerOnCurrentPage();
             butnext.bNext = true;
+            resetAnswerOnCurrentPage();
         }
     }
 
@@ -75,7 +76,10 @@ Item {
         onClicked: {
             TheoryScreen.setPage(maxpageopen);
             TheoryScreen.to_menu();
+            resetAnswerOnCurrentPage();
             view.currentIndex = 0;
+            uncorrect.visible = false;
+            butnext.bNext = true;
         }
     }
     SwipeView {
@@ -133,7 +137,7 @@ Item {
             source: "Page10.qml"
         }
         Loader {
-            active: view.currentIndex == 9 || view.currentIndex == 10|| view.currentIndex == 11
+            active: view.currentIndex == 9 || view.currentIndex == 10
             source: "Page11.qml" //end slide
         }
 

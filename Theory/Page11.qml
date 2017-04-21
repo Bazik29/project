@@ -13,19 +13,30 @@ Frame {
         contentHeight: text.height
 
         Text {
-            id:text
             font.pointSize:12
             color: "black"
             width: parent.width
             wrapMode:Text.WordWrap
             text:
-            "<h2>END SLIDE</h2>
+                "<h2>END SLIDE</h2>
 
 
             "
         }
+
+        Button {
+            id: resetbut
+            x: 258
+            y: 208
+            text: qsTr("Сбросить")
+            onClicked: {
+                theory.maxpageopen = 0;
+                view.currentIndex = 0;
+                TheoryScreen.resetProgress();
+                butnext.visible = true;
+            }
+        }
         ScrollBar.vertical: ScrollBar {}
     }
 }
-
 
