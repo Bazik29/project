@@ -5,7 +5,8 @@ import QtQuick.Controls 2.1
 
 Item {
     id: theory
-    property int maxpageopen: TheoryScreen.getPage()
+    // Проверка превышения максимума страниц
+    property int maxpageopen: (TheoryScreen.getPage() < 6) ? TheoryScreen.getPage() : 0
 
     function updateMaxPage(){
         if (view.currentIndex > maxpageopen) maxpageopen = view.currentIndex;
@@ -48,6 +49,7 @@ Item {
                 }
                 else
                     nextpage();
+
             }
         }
         else {      // Повторить
@@ -150,28 +152,46 @@ Item {
         currentIndex: view.currentIndex
 
         delegate: Rectangle{
+            id: indic
             anchors.verticalCenter: parent.verticalCenter
-            width: (index === view.currentIndex) ? 22 : 18
-            height: (index === view.currentIndex) ? 22 : 18
-            radius: (index === view.currentIndex) ? 11 : 9
-            color: (index % 2 == 0) ? "blue" : "green"
-            border {
-                width: (index === view.currentIndex) ? 1 : 1;
-                color: "silver";
-            }
-
-            opacity: {
-                if (index === view.currentIndex) 1
-                else
-                    if (index < maxpageopen) 0.7
-                    else 0.4
-
-            }
+            states: [
+                State {
+                    name: "Passed"
+                    PropertyChanges {
+                        target: indic
+                        width: 18; height: 18; radius: 9
+                        opacity: 0.75
+                    }
+                },
+                State {
+                    name: "Current"
+                    PropertyChanges {
+                        target: indic
+                        width: 22; height: 22; radius: 11
+                        opacity: 1
+                    }
+                },
+                State {
+                    name: "Lock"
+                    PropertyChanges {
+                        target: indic
+                        width: 18; height: 18; radius: 9
+                        opacity: 0.4
+                    }
+                }
+            ]
             Behavior on opacity {
                 OpacityAnimator {
-                    duration: 100
+                    duration: 200
                 }
             }
+
+            color: (index % 2 == 0) ? "blue" : "green"
+            border {
+                width: 1;
+                color: "silver";
+            }
+            state: (index === view.currentIndex) ? "Current" : (index > maxpageopen) ? "Lock" : "Passed"
 
             MouseArea {
                 anchors.fill: parent
@@ -236,13 +256,5 @@ Item {
                 butnext.bNext = true;
             }
         }
-    }
-
-    Text {
-        id: test
-        x: 293
-        y: 18
-        text: qsTr("")
-        font.pixelSize: 25
     }
 }
