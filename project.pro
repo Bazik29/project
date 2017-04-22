@@ -38,5 +38,30 @@ HEADERS  += \
 FORMS    += mainmenu.ui \
     blocks.ui
 
-RESOURCES += \
-    theory.qrc
+RESOURCES +=
+
+DISTFILES += \
+    Theory/images/9.3.PNG \
+    Theory/images/9.4.PNG \
+    Theory/images/p3.png \
+    Theory/images/p5.png \
+    Theory/images/p6.1.png \
+    Theory/images/p6.2.PNG \
+    Theory/images/p6.3.png \
+    Theory/images/p6.4.PNG \
+    Theory/images/p7.png \
+    Theory/images/p9.1.PNG \
+    Theory/images/p9.2.PNG \
+    Theory/CustButton.qml \
+    Theory/MainPage.qml \
+    Theory/Page1.qml \
+    Theory/Page10.qml \
+    Theory/Page11.qml \
+    Theory/Page2.qml \
+    Theory/Page3.qml \
+    Theory/Page4.qml \
+    Theory/Page5.qml \
+    Theory/Page6.qml \
+    Theory/Page7.qml \
+    Theory/Page8.qml \
+    Theory/Page9.qml
