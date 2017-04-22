@@ -3,17 +3,20 @@
 
 #include "mainmenu.h"
 #include "theoryscreen.h"
+#include "blocks.h"
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     menuScreen(new MainMenu(this)),
-    theoryScreen(new TheoryScreen(this))
+    theoryScreen(new TheoryScreen(this)),
+    blockScreen(new Blocks(this))
 {
     setWindowTitle("самое лучшее название для самой лучшей проги эвар");
+    setGeometry(300, 300, 1261, 663);
     QGridLayout *layout(new QGridLayout(this));
     layout->setMargin(0);
     layout->addWidget(menuScreen, 0, 0, 1, 1);
     layout->addWidget(theoryScreen, 0, 0, 1, 1);
-    //layout->addWidget(blockScreen, 0, 0, 1, 1);
+    layout->addWidget(blockScreen, 0, 0, 1, 1);
     //layout->addWidget(codeScreen, 0, 0, 1, 1);
 
 
@@ -22,8 +25,8 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     connect(menuScreen, SIGNAL(to_code()), SLOT(show_code()));
 
     connect(theoryScreen, SIGNAL(to_menu()), SLOT(show_menu()));
+    connect(blockScreen, SIGNAL(to_menu()), SLOT(show_menu()));
 
-    //connect(blockScreen, SIGNAL(to_menu()), SLOT(show_menu()));
     //connect(codeScreen, SIGNAL(to_menu()), SLOT(show_menu()));
 
     show_menu();
@@ -33,14 +36,14 @@ MainWindow::~MainWindow()
 {
     delete menuScreen;
     delete theoryScreen;
-    //delete blockScreen;
+    delete blockScreen;
     //delete codeScreen;
 }
 
 void MainWindow::show_menu()
 {
     theoryScreen->hide();
-    //blockScreen->hide();
+    blockScreen->hide();
     //codeScreen->hide();
     menuScreen->show();
 }
@@ -48,17 +51,17 @@ void MainWindow::show_menu()
 void MainWindow::show_theory()
 {
     menuScreen->hide();
-    //blockScreen->hide();
+    blockScreen->hide();
     //codeScreen->hide();
     theoryScreen->show();
 }
 
 void MainWindow::show_block()
 {
-    //menuScreen->hide();
+    menuScreen->hide();
     //codeScreen->hide();
-    //theoryScreen->hide();
-    //blockScreen->show();
+    theoryScreen->hide();
+    blockScreen->show();
 }
 
 void MainWindow::show_code()

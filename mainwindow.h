@@ -5,7 +5,7 @@
 
 class MainMenu;
 class TheoryScreen;
-class BlockScreen;
+class Blocks;
 class CodeScreen;
 
 class MainWindow : public QWidget
@@ -24,7 +24,7 @@ public slots:
 private:
     MainMenu *menuScreen = 0;
     TheoryScreen *theoryScreen = 0;
-    //BlockScreen *blockScreen = 0;
+    Blocks *blockScreen = 0;
     //CodeScreen *codeScreen = 0;
 };
 

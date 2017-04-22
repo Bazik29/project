@@ -26,14 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
     mainwindow.cpp \
     mainmenu.cpp \
-    theoryscreen.cpp
+    theoryscreen.cpp \
+    blocks.cpp
 
 HEADERS  += \
     mainwindow.h \
     mainmenu.h \
-    theoryscreen.h
+    theoryscreen.h \
+    blocks.h
 
-FORMS    += mainmenu.ui
+FORMS    += mainmenu.ui \
+    blocks.ui
 
 RESOURCES += \
     theory.qrc
