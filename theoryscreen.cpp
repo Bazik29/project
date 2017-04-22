@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include <QQmlProperty>
 #include <QFile>
+#include <QApplication>
 
 TheoryScreen::TheoryScreen(QWidget *parent) : QWidget(parent),
     quickWidget(new QQuickWidget(this))
@@ -14,8 +15,8 @@ TheoryScreen::TheoryScreen(QWidget *parent) : QWidget(parent),
 
     QQmlContext *context = quickWidget->rootContext();
     context->setContextProperty("TheoryScreen", this);
-
-    quickWidget->setSource(QUrl("qrc:/Theory/MainPage.qml"));
+    QString path = QCoreApplication::applicationDirPath() + "/Theory/MainPage.qml";
+    quickWidget->setSource(QUrl::fromLocalFile(path));
     quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 }
 
