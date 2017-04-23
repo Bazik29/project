@@ -49,7 +49,8 @@ Item {
                     }
                     else { // Неправильный ответ
                         butnext.bNext = false;
-                        uncorrect.visible = true;
+                        uncorrect.state = "show";
+                        butBack.visible = true;
                     }
                 }
                 else
@@ -58,7 +59,8 @@ Item {
             }
         }
         else {      // Повторить
-            uncorrect.visible = false;
+            uncorrect.state = "hide";
+            butBack.visible = false;
             butnext.bNext = true;
             resetAnswerOnCurrentPage();
         }
@@ -115,7 +117,7 @@ Item {
                 TheoryScreen.to_menu();
                 resetAnswerOnCurrentPage();
                 view.currentIndex = 0;
-                uncorrect.visible = false;
+                uncorrect.state = "hide";
                 butnext.bNext = true;
             }
             onReleased: butMenu.state = "hover"
@@ -197,14 +199,14 @@ Item {
         currentIndex: view.currentIndex
 
         delegate:
-        Image {
+            Image {
             id: indic
             width: 22; height: 22;
             anchors.verticalCenter: parent.verticalCenter
             source: "controls/indic_2_current.png"
             state: if (index % 2)
                        (index === view.currentIndex) ? "test-current" : (index > maxpageopen) ? "test-future" : "test"
-                    else
+                   else
                        (index === view.currentIndex) ? "theory-current" : (index > maxpageopen) ? "theory-future" : "theory"
             states: [
                 State {
@@ -252,7 +254,7 @@ Item {
             ]
             MouseArea {
                 anchors.fill: parent
-                onClicked: if (!uncorrect.visible) changePage(index)
+                onClicked: if (uncorrect.state !== "show") changePage(index)
             }
         }
     }
@@ -329,6 +331,93 @@ Item {
         }
     }
 
+    Image {
+        id: uncorrect
+        x: 1036
+        y: 599
+        width: 244
+        height: 46
+        source: "controls/wrong_answer.png"
+        state: "hide"
+        states: [
+            State {
+                name: "show"
+                PropertyChanges {
+                    target: uncorrect
+                    x: 1036
+                }
+            },
+            State {
+                name: "hide"
+                PropertyChanges {
+                    target: uncorrect
+                    x: 1281
+                }
+            }
+        ]
+        transitions:
+            Transition {
+               from: "hide"; to: "show"; reversible: true
+               PropertyAnimation {
+                   target: uncorrect
+                   properties: "x"
+                   duration: 200
+               }
+           }
+    }
+    Image {
+        id: butBack
+        x: 1036
+        y: 669
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 11
+        anchors.right: parent.right
+        anchors.rightMargin: 144
+        width: 100
+        height: 40
+        visible: false
+        state: "normal"
+        states: [
+            State {
+                name: "normal"
+                PropertyChanges {
+                    target: butBack
+                    source: "controls/back_normal.png"
+                }
+            },
+            State {
+                name: "hover"
+                PropertyChanges {
+                    target: butBack
+                    source: "controls/back_hover.png"
+                }
+            },
+            State {
+                name: "cliked"
+                PropertyChanges {
+                    target: butBack
+                    source: "controls/back_clicked.png"
+                }
+            }
+        ]
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            onEntered: butBack.state = "hover"
+            onExited: butBack.state = "normal"
+            onPressed: {
+                butBack.visible = false;
+                resetAnswerOnCurrentPage();
+                changePage(view.currentIndex-1);
+                butBack.visible = false;
+                butnext.bNext = true;
+                butnext.state = "normal-next";
+            }
+            onReleased: butBack.state = "hover"
+        }
+    }
+    
+    /*
     Frame {
         id: uncorrect
         x: 527
@@ -373,4 +462,5 @@ Item {
             }
         }
     }
+    */
 }

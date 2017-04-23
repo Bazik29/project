@@ -136,7 +136,6 @@ DISTFILES += \
     Theory/TCheckBox.qml \
     Theory/TRadioGroup.qml \
     Theory/TRadioButton.qml \
-    Theory/WrongAnswerMessage.qml \
     Theory/TFrameBackgroung.qml \
     Blocks/Adigiana_2.ttf \
     Blocks/buttons/back_clicked.png \
@@ -221,4 +220,7 @@ DISTFILES += \
     Blocks/right_without.png \
     Blocks/right_without_reverse.png \
     Blocks/status_bar.png \
-    Blocks/Win.png
+    Blocks/Win.png \
+    Theory/controls/clear_clicked.png \
+    Theory/controls/clear_hover.png \
+    Theory/controls/clear_normal.png
