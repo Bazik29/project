@@ -37,11 +37,11 @@
      <x>10</x>
      <y>30</y>
      <width>1261</width>
-     <height>663</height>
+     <height>661</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-style: none;</string>
+    <string notr="true">#graphicsView { border-style: none; }</string>
    </property>
    <property name="verticalScrollBarPolicy">
     <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -326,20 +326,26 @@
   <widget class="QLineEdit" name="Level2_edit">
    <property name="geometry">
     <rect>
-     <x>663</x>
-     <y>307</y>
+     <x>658</x>
+     <y>301</y>
      <width>41</width>
      <height>41</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
-    </font>
-   </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Level2_edit { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3);
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>
@@ -357,11 +363,20 @@
    <property name="font">
     <font>
      <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Level3_edit_1 { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3); 
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>
@@ -379,11 +394,20 @@
    <property name="font">
     <font>
      <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Level3_edit_2 { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3); 
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>
@@ -401,11 +425,20 @@
    <property name="font">
     <font>
      <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Level3_edit_3 { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3); 
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>
@@ -423,11 +456,20 @@
    <property name="font">
     <font>
      <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Level4_edit_1 { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3); 
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>
@@ -445,11 +487,20 @@
    <property name="font">
     <font>
      <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Level4_edit_2 { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3); 
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>
@@ -467,11 +518,20 @@
    <property name="font">
     <font>
      <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Level5_edit_1 { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3); 
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>
@@ -489,11 +549,20 @@
    <property name="font">
     <font>
      <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Level5_edit_2 { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3); 
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>
@@ -511,11 +580,20 @@
    <property name="font">
     <font>
      <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#inter_edit_3 { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3); 
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>
@@ -533,11 +611,20 @@
    <property name="font">
     <font>
      <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#inter_edit_2 { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3); 
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>
@@ -555,11 +642,20 @@
    <property name="font">
     <font>
      <family>Adigiana 2</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#inter_edit_1 { 
+border: none; 
+background-color: rgba(255, 255, 255, 0%); 
+color:rgb(17,51,3); 
+font-family: Adigiana 2 ; 
+font-size: 50px;
+}</string>
    </property>
    <property name="text">
     <string>0</string>

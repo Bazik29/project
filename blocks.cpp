@@ -238,6 +238,7 @@ void Blocks::on_back_clicked(){
     ui->inter_edit_3->setVisible(false);
     ui->back->setVisible(false);
     ui->start->setVisible(false);
+    ui->stop->setVisible(false);
     ui->level_1->setVisible(true);
     ui->level_2->setVisible(true);
     ui->level_3->setVisible(true);
@@ -3203,10 +3204,12 @@ void Blocks::on_back_small_clicked()
 
 void Blocks::set_levelFon()
 {
-    setStyleSheet("background-image: url(Blocks/back_level.png)");
+    setStyleSheet("#Blocks{background-image: url(Blocks/back_level.png)}");
+    //setStyleSheet("background-image: url(Blocks/back_level.png)");
 }
 
 void Blocks::set_subMenuFon()
 {
-    setStyleSheet("background-image: url(Blocks/back_submenu.png)");
+    setStyleSheet("#Blocks{background-image: url(Blocks/back_submenu.png)}");
+    //setStyleSheet("background-image: url(Blocks/back_submenu.png)");
 }

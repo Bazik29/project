@@ -72,8 +72,8 @@ public:
         level2->setObjectName(QStringLiteral("level2"));
         graphicsView = new QGraphicsView(Blocks);
         graphicsView->setObjectName(QStringLiteral("graphicsView"));
-        graphicsView->setGeometry(QRect(10, 30, 1261, 663));
-        graphicsView->setStyleSheet(QStringLiteral("border-style: none;"));
+        graphicsView->setGeometry(QRect(10, 30, 1261, 661));
+        graphicsView->setStyleSheet(QStringLiteral("#graphicsView { border-style: none; }"));
         graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         graphicsView->setInteractive(true);
@@ -229,62 +229,138 @@ public:
 "}"));
         Level2_edit = new QLineEdit(Blocks);
         Level2_edit->setObjectName(QStringLiteral("Level2_edit"));
-        Level2_edit->setGeometry(QRect(663, 307, 41, 41));
-        QFont font;
-        font.setFamily(QStringLiteral("Adigiana 2"));
-        font.setPointSize(36);
-        Level2_edit->setFont(font);
+        Level2_edit->setGeometry(QRect(658, 301, 41, 41));
         Level2_edit->setCursor(QCursor(Qt::IBeamCursor));
+        Level2_edit->setFocusPolicy(Qt::StrongFocus);
+        Level2_edit->setStyleSheet(QLatin1String("#Level2_edit { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3);\n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         Level3_edit_1 = new QLineEdit(Blocks);
         Level3_edit_1->setObjectName(QStringLiteral("Level3_edit_1"));
         Level3_edit_1->setGeometry(QRect(670, 196, 41, 41));
+        QFont font;
+        font.setFamily(QStringLiteral("Adigiana 2"));
         Level3_edit_1->setFont(font);
         Level3_edit_1->setCursor(QCursor(Qt::IBeamCursor));
+        Level3_edit_1->setStyleSheet(QLatin1String("#Level3_edit_1 { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3); \n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         Level3_edit_2 = new QLineEdit(Blocks);
         Level3_edit_2->setObjectName(QStringLiteral("Level3_edit_2"));
         Level3_edit_2->setGeometry(QRect(918, 264, 41, 41));
         Level3_edit_2->setFont(font);
         Level3_edit_2->setCursor(QCursor(Qt::IBeamCursor));
+        Level3_edit_2->setStyleSheet(QLatin1String("#Level3_edit_2 { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3); \n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         Level3_edit_3 = new QLineEdit(Blocks);
         Level3_edit_3->setObjectName(QStringLiteral("Level3_edit_3"));
         Level3_edit_3->setGeometry(QRect(406, 462, 41, 41));
         Level3_edit_3->setFont(font);
         Level3_edit_3->setCursor(QCursor(Qt::IBeamCursor));
+        Level3_edit_3->setStyleSheet(QLatin1String("#Level3_edit_3 { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3); \n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         Level4_edit_1 = new QLineEdit(Blocks);
         Level4_edit_1->setObjectName(QStringLiteral("Level4_edit_1"));
         Level4_edit_1->setGeometry(QRect(869, 249, 41, 41));
         Level4_edit_1->setFont(font);
         Level4_edit_1->setCursor(QCursor(Qt::IBeamCursor));
+        Level4_edit_1->setStyleSheet(QLatin1String("#Level4_edit_1 { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3); \n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         Level4_edit_2 = new QLineEdit(Blocks);
         Level4_edit_2->setObjectName(QStringLiteral("Level4_edit_2"));
         Level4_edit_2->setGeometry(QRect(557, 344, 41, 41));
         Level4_edit_2->setFont(font);
         Level4_edit_2->setCursor(QCursor(Qt::IBeamCursor));
+        Level4_edit_2->setStyleSheet(QLatin1String("#Level4_edit_2 { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3); \n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         Level5_edit_1 = new QLineEdit(Blocks);
         Level5_edit_1->setObjectName(QStringLiteral("Level5_edit_1"));
         Level5_edit_1->setGeometry(QRect(654, 234, 41, 41));
         Level5_edit_1->setFont(font);
         Level5_edit_1->setCursor(QCursor(Qt::IBeamCursor));
+        Level5_edit_1->setStyleSheet(QLatin1String("#Level5_edit_1 { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3); \n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         Level5_edit_2 = new QLineEdit(Blocks);
         Level5_edit_2->setObjectName(QStringLiteral("Level5_edit_2"));
         Level5_edit_2->setGeometry(QRect(910, 334, 41, 41));
         Level5_edit_2->setFont(font);
         Level5_edit_2->setCursor(QCursor(Qt::IBeamCursor));
+        Level5_edit_2->setStyleSheet(QLatin1String("#Level5_edit_2 { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3); \n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         inter_edit_3 = new QLineEdit(Blocks);
         inter_edit_3->setObjectName(QStringLiteral("inter_edit_3"));
         inter_edit_3->setGeometry(QRect(932, 317, 41, 41));
         inter_edit_3->setFont(font);
         inter_edit_3->setCursor(QCursor(Qt::IBeamCursor));
+        inter_edit_3->setStyleSheet(QLatin1String("#inter_edit_3 { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3); \n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         inter_edit_2 = new QLineEdit(Blocks);
         inter_edit_2->setObjectName(QStringLiteral("inter_edit_2"));
         inter_edit_2->setGeometry(QRect(396, 317, 41, 41));
         inter_edit_2->setFont(font);
         inter_edit_2->setCursor(QCursor(Qt::IBeamCursor));
+        inter_edit_2->setStyleSheet(QLatin1String("#inter_edit_2 { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3); \n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         inter_edit_1 = new QLineEdit(Blocks);
         inter_edit_1->setObjectName(QStringLiteral("inter_edit_1"));
         inter_edit_1->setGeometry(QRect(658, 218, 41, 41));
         inter_edit_1->setFont(font);
         inter_edit_1->setCursor(QCursor(Qt::IBeamCursor));
+        inter_edit_1->setStyleSheet(QLatin1String("#inter_edit_1 { \n"
+"border: none; \n"
+"background-color: rgba(255, 255, 255, 0%); \n"
+"color:rgb(17,51,3); \n"
+"font-family: Adigiana 2 ; \n"
+"font-size: 50px;\n"
+"}"));
         back_small = new QPushButton(Blocks);
         back_small->setObjectName(QStringLiteral("back_small"));
         back_small->setGeometry(QRect(566, 591, 178, 83));
