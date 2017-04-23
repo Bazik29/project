@@ -4,16 +4,14 @@ import QtQuick.Controls 2.1
 
 Frame {
     id: page2
+    background: TFrameBackgroung{}
     anchors.fill: parent
     property bool test: true
     function check() {
-        return ans1.checked;
+        return radioGroup1.selected === ans1;
     }
     function reset() {
-        ans1.checked = false;
-        ans2.checked = false;
-        ans3.checked = false;
-        ans4.checked = false;
+        radioGroup1.selected = null
     }
 
     Text {
@@ -21,12 +19,16 @@ Frame {
         wrapMode:Text.WordWrap
         text: qsTr("<h3>Какой символ обозначает блок 'ввод-вывод' в блок-схеме?</h3>")
         verticalAlignment: Text.AlignTop
+        font.pointSize: 10
     }
-
-    RadioButton {
+    TRadioGroup{
+        id: radioGroup1
+    }
+    TRadioButton {
         id: ans4
         x: 198
         y: 230
+        radioGroup: radioGroup1
         anchors.verticalCenterOffset: 0
         anchors.left: img3.right
         anchors.leftMargin: 14
@@ -44,10 +46,11 @@ Frame {
         anchors.horizontalCenter: img3.horizontalCenter
     }
 
-    RadioButton {
+    TRadioButton {
         id: ans3
         x: 198
         y: 300
+        radioGroup: radioGroup1
         anchors.verticalCenterOffset: 0
         anchors.left: img4.right
         anchors.leftMargin: 14
@@ -64,7 +67,8 @@ Frame {
         anchors.horizontalCenter: img2.horizontalCenter
     }
 
-    RadioButton {
+    TRadioButton {
+        radioGroup: radioGroup1
         id: ans2
         x: 198
         y: 146
@@ -84,10 +88,11 @@ Frame {
         anchors.topMargin: 10
     }
 
-    RadioButton {
+    TRadioButton {
         id: ans1
         x: 198
         y: 60
+        radioGroup: radioGroup1
         anchors.left: img1.right
         anchors.leftMargin: 21
         anchors.verticalCenter: img1.verticalCenter

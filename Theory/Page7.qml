@@ -4,6 +4,7 @@ import QtQuick.Controls 2.1
 
 Frame {
     id: page7
+    background: TFrameBackgroung{}
     anchors.fill: parent
     clip:true
     property bool test: false

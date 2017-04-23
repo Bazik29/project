@@ -17,7 +17,7 @@ TheoryScreen::TheoryScreen(QWidget *parent) : QWidget(parent),
     context->setContextProperty("TheoryScreen", this);
 
     QString path = QCoreApplication::applicationDirPath() + "/Theory/MainPage.qml";
-    quickWidget->setSource(QUrl::fromLocalFile(path));
+    quickWidget->setSource(QUrl::fromLocalFile("Theory/MainPage.qml"));
     quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 }
 

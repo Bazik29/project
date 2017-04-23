@@ -4,6 +4,11 @@ import QtQuick.Controls 2.1
 // TheoryScreen
 
 Item {
+    Image {
+        id: back
+        anchors.fill: parent
+        source: "images/background.png"
+    }
     id: theory
     // Проверка превышения максимума страниц
     property int maxpageopen: (TheoryScreen.getPage() < 11) ? TheoryScreen.getPage() : 0
@@ -45,7 +50,6 @@ Item {
                     else { // Неправильный ответ
                         butnext.bNext = false;
                         uncorrect.visible = true;
-                        butnext.text = "Повторить";
                     }
                 }
                 else
@@ -54,7 +58,6 @@ Item {
             }
         }
         else {      // Повторить
-            butnext.text = "Продолжить";
             uncorrect.visible = false;
             butnext.bNext = true;
             resetAnswerOnCurrentPage();
@@ -67,21 +70,59 @@ Item {
         }
     }
 
-    Button {
-        text: "Меню"
+    Image {
+        id: butMenu
+        width: 100
+        height: 40
+
         anchors.left: parent.left
         anchors.leftMargin: 36
         anchors.top: parent.top
         anchors.topMargin: 8
-        onClicked: {
-            TheoryScreen.setPage(maxpageopen);
-            TheoryScreen.to_menu();
-            resetAnswerOnCurrentPage();
-            view.currentIndex = 0;
-            uncorrect.visible = false;
-            butnext.bNext = true;
+        state: "normal"
+        source: "controls/menu_normal.png"
+        states: [
+            State {
+                name: "normal"
+                PropertyChanges {
+                    target: butMenu
+                    source: "controls/menu_normal.png"
+                }
+            },
+            State {
+                name: "hover"
+                PropertyChanges {
+                    target: butMenu
+                    source: "controls/menu_hover.png"
+                }
+            },
+            State {
+                name: "cliked"
+                PropertyChanges {
+                    target: butMenu
+                    source: "controls/menu_clicked.png"
+                }
+            }
+        ]
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            onEntered: butMenu.state = "hover"
+            onExited: butMenu.state = "normal"
+            onPressed: {
+                butMenu.state = "cliked";
+                TheoryScreen.setPage(maxpageopen);
+                TheoryScreen.to_menu();
+                resetAnswerOnCurrentPage();
+                view.currentIndex = 0;
+                uncorrect.visible = false;
+                butnext.bNext = true;
+            }
+            onReleased: butMenu.state = "hover"
         }
+
     }
+
     SwipeView {
         id:view
         anchors.fill: parent
@@ -143,8 +184,8 @@ Item {
 
     }
 
+
     PageIndicator {
-        x: 47
         width: 268
         height: 34
         anchors.horizontalCenter: parent.horizontalCenter
@@ -155,48 +196,60 @@ Item {
         count: view.count
         currentIndex: view.currentIndex
 
-        delegate: Rectangle{
+        delegate:
+        Image {
             id: indic
+            width: 22; height: 22;
             anchors.verticalCenter: parent.verticalCenter
+            source: "controls/indic_2_current.png"
+            state: if (index % 2)
+                       (index === view.currentIndex) ? "test-current" : (index > maxpageopen) ? "test-future" : "test"
+                    else
+                       (index === view.currentIndex) ? "theory-current" : (index > maxpageopen) ? "theory-future" : "theory"
             states: [
                 State {
-                    name: "Passed"
+                    name: "theory"
                     PropertyChanges {
                         target: indic
-                        width: 18; height: 18; radius: 9
-                        opacity: 0.75
+                        source: "controls/indic_2.png"
                     }
                 },
                 State {
-                    name: "Current"
+                    name: "theory-current"
                     PropertyChanges {
                         target: indic
-                        width: 22; height: 22; radius: 11
-                        opacity: 1
+                        source: "controls/indic_2_current.png"
                     }
                 },
                 State {
-                    name: "Lock"
+                    name: "theory-future"
                     PropertyChanges {
                         target: indic
-                        width: 18; height: 18; radius: 9
-                        opacity: 0.4
+                        source: "controls/indic_2_future.png"
+                    }
+                },
+                State {
+                    name: "test"
+                    PropertyChanges {
+                        target: indic
+                        source: "controls/indic_1.png"
+                    }
+                },
+                State {
+                    name: "test-current"
+                    PropertyChanges {
+                        target: indic
+                        source: "controls/indic_1_current.png"
+                    }
+                },
+                State {
+                    name: "test-future"
+                    PropertyChanges {
+                        target: indic
+                        source: "controls/indic_1_future.png"
                     }
                 }
             ]
-            Behavior on opacity {
-                OpacityAnimator {
-                    duration: 200
-                }
-            }
-
-            color: (index % 2 == 0) ? "blue" : "green"
-            border {
-                width: 1;
-                color: "silver";
-            }
-            state: (index === view.currentIndex) ? "Current" : (index > maxpageopen) ? "Lock" : "Passed"
-
             MouseArea {
                 anchors.fill: parent
                 onClicked: if (!uncorrect.visible) changePage(index)
@@ -204,18 +257,78 @@ Item {
         }
     }
 
-    Button {
+    Image {
         id: butnext
         property bool bNext: true
-        x: 664
-        y: 549
-        text: "Продолжить"
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 11
         anchors.right: parent.right
         anchors.rightMargin: 36
-        onClicked: checkAndNext()
+        width: 100
+        height: 40
+        state: "normal-next"
+        source: "controls/next_normal.png"
+        states: [
+            State {
+                name: "normal-next"
+                PropertyChanges {
+                    target: butnext
+                    source: "controls/next_normal.png"
+                }
+            },
+            State {
+                name: "hover-next"
+                PropertyChanges {
+                    target: butnext
+                    source: "controls/next_hover.png"
+                }
+            },
+            State {
+                name: "cliked-next"
+                PropertyChanges {
+                    target: butnext
+                    source: "controls/next_clicked.png"
+                }
+            },
+            State {
+                name: "normal-retry"
+                PropertyChanges {
+                    target: butnext
+                    source: "controls/retry_normal.png"
+                }
+            },
+            State {
+                name: "hover-retry"
+                PropertyChanges {
+                    target: butnext
+                    source: "controls/retry_hover.png"
+                }
+            },
+            State {
+                name: "cliked-next"
+                PropertyChanges {
+                    target: butnext
+                    source: "controls/retry_clicked.png"
+                }
+            }
+        ]
+        MouseArea {
+            anchors.rightMargin: 0
+            anchors.bottomMargin: 0
+            anchors.leftMargin: 0
+            anchors.topMargin: 0
+            anchors.fill: parent
+            hoverEnabled: true
+            onEntered: butnext.state = butnext.bNext ? "hover-next" : "hover-retry"
+            onExited: butnext.state = butnext.bNext ? "normal-next" : "normal-retry"
+            onPressed: {
+                butnext.state = butnext.bNext ? "cliked-next" : "cliked-retry"
+                checkAndNext()
+            }
+            onReleased: butnext.state = butnext.bNext ? "hover-next" : "hover-retry"
+        }
     }
+
     Frame {
         id: uncorrect
         x: 527
@@ -256,7 +369,6 @@ Item {
                 resetAnswerOnCurrentPage();
                 changePage(view.currentIndex-1);
                 uncorrect.visible = false;
-                butnext.text = "Продолжить";
                 butnext.bNext = true;
             }
         }

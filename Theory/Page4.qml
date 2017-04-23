@@ -4,50 +4,63 @@ import QtQuick.Controls 2.1
 
 Frame {
     id: page4
+    background: TFrameBackgroung{}
     anchors.fill: parent
     property bool test: true
     function check() {
-        return ans4.checked;
+        return radioGroup1.selected === ans4;
     }
     function reset() {
-        ans1.checked = false;
-        ans2.checked = false;
-        ans3.checked = false;
-        ans4.checked = false;
+        radioGroup1.selected = null
+    }
+    TRadioGroup{
+        id: radioGroup1
     }
 
     Column {
+        id: column
+        anchors.horizontalCenterOffset: 0
+        anchors.rightMargin: 0
+        anchors.bottomMargin: 0
+        anchors.leftMargin: 0
+        anchors.topMargin: 0
         anchors.fill: parent
         spacing: 10
         anchors.horizontalCenter: parent.horizontalCenter
         Text {
+            id: qwe
             width: parent.width
             wrapMode:Text.WordWrap
             text: qsTr("<h3>Какие бывают способы представления алгоритма?</h3>")
+            font.pointSize: 10
         }
-         RadioButton
+         TRadioButton
          {
             id:ans1
             text: "Графический"
-            width: parent.width
+            anchors.top: qwe.bottom
+            radioGroup: radioGroup1
          }
-         RadioButton
+         TRadioButton
          {
             id:ans2
             text: "Псевдокод"
-            width: parent.width
+            anchors.top: ans1.bottom
+            radioGroup: radioGroup1
          }
-         RadioButton
+         TRadioButton
          {
             id:ans3
             text: "На языке программирования"
-            width: parent.width
+            anchors.top: ans2.bottom
+            radioGroup: radioGroup1
          }
-         RadioButton
+         TRadioButton
          {
             id:ans4
             text: "Все вышеперечисленное"
-            width: parent.width
+            anchors.top: ans3.bottom
+            radioGroup: radioGroup1
          }
     }
 }

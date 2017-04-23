@@ -4,11 +4,12 @@ import QtQuick.Controls 2.1
 
 Frame {
     id: page10
+    background: TFrameBackgroung{}
     anchors.fill: parent
     property bool test: true
+    padding: 12
     function check() {
-        //return !ans1.checked && ans2.checked && !ans3.checked && !ans4.checked;
-        return ans2.checked;
+        return !ans1.checked && !ans3.checked && !ans4.checked && ans2.checked;
     }
     function reset() {
         ans1.checked = false;
@@ -18,39 +19,45 @@ Frame {
     }
 
     Column {
+        id: column
         anchors.fill: parent
         spacing: 10
 
         Text {
+            id: qwe
             width: parent.width
             wrapMode:Text.WordWrap
             text: qsTr("<h3>Алгоритм структуры «ветвление» предусматривает:</h3>")
+            font.pointSize: 10
         }
-        RadioButton
+        TCheckBox
         {
            id:ans1
            text: "Выбор алгоритмов"
-           width: parent.width
+           anchors.top: qwe.bottom
         }
-        RadioButton
+        TCheckBox
         {
            id:ans2
            text: "Выбор команд (действий)" //true
-           width: parent.width
+           anchors.top: ans1.bottom
+           anchors.topMargin: 5
         }
 
-        RadioButton
+        TCheckBox
         {
            id:ans3
            text: "Выбор данных"
-           width: parent.width
+           anchors.top: ans2.bottom
+           anchors.topMargin: 5
         }
-        RadioButton
+        TCheckBox
         {
            id:ans4
            text: "Выбор обхода"
-           width: parent.width
+           anchors.top: ans3.bottom
+           anchors.topMargin: 5
         }
-        }
+    }
     }
 

@@ -5,6 +5,7 @@ Blocks::Blocks(QWidget *parent) : QWidget(parent),
     ui(new Ui::Blocks)
 {
     ui->setupUi(this);
+    set_subMenuFon();
     ui->back->setVisible(false);
     ui->start->setVisible(false);
     scene = new QGraphicsScene(this);
@@ -41,7 +42,13 @@ Blocks::Blocks(QWidget *parent) : QWidget(parent),
     timer = new QTimer();
     failed = false;
 }
-
+void Blocks::paintEvent(QPaintEvent *)
+{
+    QStyleOption opt;
+    opt.init(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+}
 void Blocks::Endgame(){
     ui->Level2_edit->setVisible(false);
     ui->Level3_edit_1->setVisible(false);
@@ -215,6 +222,7 @@ Blocks::~Blocks()
 }
 
 void Blocks::on_back_clicked(){
+    set_subMenuFon();
     if (timer->isActive())
         timer->stop();
     ui->Level2_edit->setVisible(false);
@@ -248,6 +256,7 @@ void Blocks::on_back_clicked(){
 
 void Blocks::on_actionLevel1_clicked()
 {
+    set_levelFon();
     ui->stop->setVisible(false);
     ui->start->setVisible(false);
     ui->retry->setVisible(false);
@@ -2803,6 +2812,7 @@ void Blocks::level7_start(int step){
 }
 
 void Blocks::on_actionLevel8_clicked(){
+    set_levelFon();
     ui->stop->setVisible(false);
     ui->start->setVisible(false);
     ui->retry->setVisible(false);
@@ -2864,6 +2874,7 @@ void Blocks::on_actionLevel8_clicked(){
 }
 
 void Blocks::on_actionLevel7_clicked(){
+    set_levelFon();
     ui->stop->setVisible(false);
     ui->start->setVisible(false);
     ui->retry->setVisible(false);
@@ -2919,6 +2930,7 @@ void Blocks::on_actionLevel7_clicked(){
 }
 
 void Blocks::on_actionLevel6_clicked(){
+    set_levelFon();
     ui->stop->setVisible(false);
     ui->start->setVisible(false);
     ui->retry->setVisible(false);
@@ -2975,6 +2987,7 @@ void Blocks::on_actionLevel6_clicked(){
 }
 
 void Blocks::on_actionLevel5_clicked(){
+    set_levelFon();
     ui->stop->setVisible(false);
     ui->start->setVisible(false);
     ui->retry->setVisible(false);
@@ -3023,6 +3036,7 @@ void Blocks::on_actionLevel5_clicked(){
 }
 
 void Blocks::on_actionLevel4_clicked(){
+    set_levelFon();
     ui->stop->setVisible(false);
     ui->start->setVisible(false);
     ui->retry->setVisible(false);
@@ -3084,6 +3098,7 @@ void Blocks::on_actionLevel4_clicked(){
 }
 
 void Blocks::on_actionLevel3_clicked(){
+    set_levelFon();
     ui->stop->setVisible(false);
     ui->start->setVisible(false);
     ui->retry->setVisible(false);
@@ -3139,6 +3154,7 @@ void Blocks::on_actionLevel3_clicked(){
 
 void Blocks::on_actionLevel2_clicked()
 {
+    set_levelFon();
     ui->stop->setVisible(false);
     ui->start->setVisible(false);
     ui->retry->setVisible(false);
@@ -3183,4 +3199,14 @@ void Blocks::on_actionLevel2_clicked()
 void Blocks::on_back_small_clicked()
 {
     emit to_menu();
+}
+
+void Blocks::set_levelFon()
+{
+    setStyleSheet("background-image: url(Blocks/back_level.png)");
+}
+
+void Blocks::set_subMenuFon()
+{
+    setStyleSheet("background-image: url(Blocks/back_submenu.png)");
 }

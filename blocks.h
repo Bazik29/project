@@ -21,6 +21,7 @@ class Blocks : public QWidget
 public:
     explicit Blocks(QWidget *parent = 0);
     ~Blocks();
+    void paintEvent(QPaintEvent *);
 signals:
     void to_menu();
 protected:
@@ -87,10 +88,11 @@ private:
     bool finish;
     bool crying;
     bool failed;
+    void set_levelFon();
+    void set_subMenuFon();
 private slots:
     void onTimer();
     void on_actionLevel1_clicked();
-    //void on_start_clicked();
     void on_actionActionstart_triggered();
     void on_action_stop();
     void on_actionLevel2_clicked();

@@ -3,8 +3,8 @@ import QtQuick.Controls 2.1
 
 
 Frame {
-
     id: page8
+    background: TFrameBackgroung{}
     anchors.fill: parent
     property bool test: true
 
@@ -27,7 +27,8 @@ Frame {
             Text {
                 width: parent.width
                 wrapMode:Text.WordWrap
-                text: qsTr("<h3>Впишите недостающий блок псевдокода</h3>")
+                text: qsTr("<h3>Впишите недостающий блок псевдокода.</h3>")
+                font.pointSize: 10
             }
             Text {
                 font.pointSize:12
@@ -47,10 +48,7 @@ Frame {
             TextField {
                 id:input
                 text:""
-
             }
-
-
         }
 
 }

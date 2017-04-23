@@ -15,6 +15,7 @@ class MainMenu : public QWidget
 public:
     explicit MainMenu(QWidget *parent = 0);
     ~MainMenu();
+    void paintEvent(QPaintEvent*);
 signals:
     void to_theory();
     void to_block();

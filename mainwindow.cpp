@@ -11,7 +11,9 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     blockScreen(new Blocks(this))
 {
     setWindowTitle("самое лучшее название для самой лучшей проги эвар");
-    setGeometry(300, 300, 1261, 663);
+
+    setMinimumSize(1280, 720);
+    setMaximumSize(1280, 720);
     QGridLayout *layout(new QGridLayout(this));
     layout->setMargin(0);
     layout->addWidget(menuScreen, 0, 0, 1, 1);
@@ -26,7 +28,6 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
 
     connect(theoryScreen, SIGNAL(to_menu()), SLOT(show_menu()));
     connect(blockScreen, SIGNAL(to_menu()), SLOT(show_menu()));
-
     //connect(codeScreen, SIGNAL(to_menu()), SLOT(show_menu()));
 
     show_menu();
@@ -66,9 +67,8 @@ void MainWindow::show_block()
 
 void MainWindow::show_code()
 {
-
-    //menuScreen->hide();
-    //theoryScreen->hide();
-    //blockScreen->hide();
+    menuScreen->hide();
+    theoryScreen->hide();
+    blockScreen->hide();
     //codeScreen->show();
 }

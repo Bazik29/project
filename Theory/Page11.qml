@@ -4,15 +4,17 @@ import QtQuick.Controls 2.1
 
 Frame {
     id: page11
+    background: TFrameBackgroung{}
     anchors.fill: parent
     clip:true
     property bool test: false
 
     Flickable {
         anchors.fill: parent
-        contentHeight: text.height
+        contentHeight: textt.height
 
         Text {
+            id:textt
             font.pointSize:12
             color: "black"
             width: parent.width
