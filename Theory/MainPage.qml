@@ -112,13 +112,14 @@ Item {
             onEntered: butMenu.state = "hover"
             onExited: butMenu.state = "normal"
             onPressed: {
-                butMenu.state = "cliked";
                 TheoryScreen.setPage(maxpageopen);
-                TheoryScreen.to_menu();
                 resetAnswerOnCurrentPage();
-                view.currentIndex = 0;
                 uncorrect.state = "hide";
                 butnext.bNext = true;
+                butnext.state = "normal-next";
+                butnext.visible = true;
+                view.currentIndex = 0;
+                TheoryScreen.to_menu();
             }
             onReleased: butMenu.state = "hover"
         }
@@ -417,51 +418,4 @@ Item {
             onReleased: butBack.state = "hover"
         }
     }
-    
-    /*
-    Frame {
-        id: uncorrect
-        x: 527
-        y: 490
-        width: 215
-        height: 35
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 75
-        anchors.right: parent.right
-        anchors.rightMargin: 58
-        enabled: true
-        padding: 1
-        visible: false
-        focus: true
-        Text {
-            color: "red"
-            text: "Неправильно"
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 5
-            anchors.left: parent.left
-            anchors.leftMargin: 5
-            anchors.top: parent.top
-            anchors.topMargin: 5
-            font.pixelSize: 20
-        }
-
-        Button {
-            x: 163
-            width: 73
-            text: "Назад"
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 5
-            anchors.right: parent.right
-            anchors.rightMargin: 5
-            anchors.top: parent.top
-            anchors.topMargin: 5
-            onClicked: {
-                resetAnswerOnCurrentPage();
-                changePage(view.currentIndex-1);
-                uncorrect.visible = false;
-                butnext.bNext = true;
-            }
-        }
-    }
-    */
 }

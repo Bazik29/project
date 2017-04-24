@@ -67,8 +67,8 @@ void MainWindow::show_block()
 
 void MainWindow::show_code()
 {
-    menuScreen->hide();
-    theoryScreen->hide();
-    blockScreen->hide();
+    //menuScreen->hide();
+    //theoryScreen->hide();
+    //blockScreen->hide();
     //codeScreen->show();
 }

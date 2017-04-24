@@ -1,4 +1,4 @@
-import QtQuick 2.0
+﻿import QtQuick 2.0
 import QtQuick.Controls 2.1
 
 Item {
@@ -43,3 +43,4 @@ Item {
         anchors.left: image.right
     }
 }
+ 
