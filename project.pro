@@ -223,4 +223,7 @@ DISTFILES += \
     Blocks/Win.png \
     Theory/controls/clear_clicked.png \
     Theory/controls/clear_hover.png \
-    Theory/controls/clear_normal.png
+    Theory/controls/clear_normal.png \
+    myapp.rc
+
+RC_FILE = myapp.rc

@@ -412,6 +412,7 @@ Item {
                 butBack.visible = false;
                 butnext.bNext = true;
                 butnext.state = "normal-next";
+                uncorrect.state = "hide"
             }
             onReleased: butBack.state = "hover"
         }

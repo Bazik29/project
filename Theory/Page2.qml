@@ -19,6 +19,7 @@ Frame {
 
     Column {
         id: column
+        anchors.leftMargin: 10
         anchors.fill: parent
         spacing: 10
         anchors.horizontalCenter: parent.horizontalCenter

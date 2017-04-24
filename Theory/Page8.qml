@@ -21,6 +21,7 @@ Frame {
     }
 
     Column {
+        anchors.leftMargin: 10
         anchors.fill: parent
         spacing: 35
 

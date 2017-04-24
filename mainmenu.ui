@@ -32,8 +32,8 @@
   <widget class="QPushButton" name="BlockButton">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>315</y>
+     <x>498</x>
+     <y>360</y>
      <width>284</width>
      <height>132</height>
     </rect>
@@ -65,8 +65,8 @@
   <widget class="QPushButton" name="CodeButton">
    <property name="geometry">
     <rect>
-     <x>880</x>
-     <y>315</y>
+     <x>786</x>
+     <y>360</y>
      <width>284</width>
      <height>132</height>
     </rect>
@@ -98,8 +98,8 @@
   <widget class="QPushButton" name="TheoryButton">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>315</y>
+     <x>210</x>
+     <y>360</y>
      <width>284</width>
      <height>132</height>
     </rect>

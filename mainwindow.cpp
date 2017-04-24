@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     theoryScreen(new TheoryScreen(this)),
     blockScreen(new Blocks(this))
 {
-    setWindowTitle("самое лучшее название для самой лучшей проги эвар");
+    setWindowTitle("Click&Learn");
 
     setMinimumSize(1280, 720);
     setMaximumSize(1280, 720);

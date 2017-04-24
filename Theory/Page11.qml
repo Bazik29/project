@@ -10,6 +10,7 @@ Frame {
     property bool test: false
 
     Flickable {
+        id: flickable
         anchors.fill: parent
         contentHeight: textt.height
 
@@ -20,20 +21,22 @@ Frame {
             width: parent.width
             wrapMode:Text.WordWrap
             text:
-                "<h2>END SLIDE</h2>
-
-
+            "<h2>Поздравляем с завершением теоретического курса</h2><br>
+                Не забудьте посетить интересные тренировочные режимы, чтобы закрепить полученные знания.
+                <br><h6>Вы можете сбросить сохраненный прогресс изучения теоритического материала нажав соответсвующию кнопку.</h6>
             "
         }
         Image {
             id: butRes
+            x: 597
+            y: 487
             width: 163
             height: 69
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: -508
+            anchors.right: parent.right
+            anchors.rightMargin: 16
 
-            anchors.left: parent.left
-            anchors.leftMargin: 119
-            anchors.top: parent.top
-            anchors.topMargin: 204
             state: "normal"
             source: "controls/clear_normal.png"
             states: [

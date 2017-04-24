@@ -1206,7 +1206,7 @@ void Blocks::level4_start(int step){
 
 void Blocks::level5_start(int step){
     numberofegik = ui->Level5_edit_1->text().toInt();
-    numberofegik2 = ui->Level5_edit_2->text().toInt();
+    numberofegik1 = ui->Level5_edit_2->text().toInt();
     switch (step){
     case 1: {
         timer = new QTimer();
@@ -1634,7 +1634,36 @@ void Blocks::level6_start(int step){
             }
         } else {
             if (currentegik<numberofegik1){
-
+                switch (currentegik){
+                    case 1: {
+                    crying = true;
+                    minieg1->setVisible(false);
+                    QPixmap minieg(QApplication::applicationDirPath()+"/Blocks/egik_mini_cry.png");
+                    minieg1 = scene->addPixmap(minieg);
+                    minieg1->setPos(1171,24);
+                } break;
+                case 2: {
+                    crying = true;
+                    minieg2->setVisible(false);
+                    QPixmap minieg(QApplication::applicationDirPath()+"/Blocks/egik_mini_cry.png");
+                    minieg2 = scene->addPixmap(minieg);
+                    minieg2->setPos(1171,86);
+                } break;
+                case 3: {
+                    crying = true;
+                    minieg3->setVisible(false);
+                    QPixmap minieg(QApplication::applicationDirPath()+"/Blocks/egik_mini_cry.png");
+                    minieg3 = scene->addPixmap(minieg);
+                    minieg3->setPos(1171,149);
+                } break;
+                case 4: {
+                    crying = true;
+                    minieg4->setVisible(false);
+                    QPixmap minieg(QApplication::applicationDirPath()+"/Blocks/egik_mini_cry.png");
+                    minieg4 = scene->addPixmap(minieg);
+                    minieg4->setPos(1171,211);
+                } break;
+                }
             } else {
                 if (appleex){
                     appleex = false; withapple = true; apple->setVisible(false);
@@ -1772,6 +1801,7 @@ void Blocks::level6_start(int step){
             } break;
             }
         }
+		player->setVisible(false);
        if (currentegik==1){
            player=player2;
            crying = false;

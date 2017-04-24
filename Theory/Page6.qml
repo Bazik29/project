@@ -18,6 +18,8 @@ Frame {
         id: title
         wrapMode:Text.WordWrap
         text: qsTr("<h3>Какой символ обозначает блок 'ввод-вывод' в блок-схеме?</h3>")
+        anchors.left: parent.left
+        anchors.leftMargin: 10
         verticalAlignment: Text.AlignTop
         font.pointSize: 10
     }
@@ -100,9 +102,10 @@ Frame {
 
     Text {
         id: img1
-        x: 7
         y: 39
         text: "<img src='images/p6.1.png'>"
+        anchors.left: parent.left
+        anchors.leftMargin: 10
     }
 
 }

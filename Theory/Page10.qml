@@ -20,6 +20,7 @@ Frame {
 
     Column {
         id: column
+        anchors.bottomMargin: 10
         anchors.fill: parent
         spacing: 10
 

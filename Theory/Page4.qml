@@ -22,7 +22,7 @@ Frame {
         anchors.horizontalCenterOffset: 0
         anchors.rightMargin: 0
         anchors.bottomMargin: 0
-        anchors.leftMargin: 0
+        anchors.leftMargin: 10
         anchors.topMargin: 0
         anchors.fill: parent
         spacing: 10

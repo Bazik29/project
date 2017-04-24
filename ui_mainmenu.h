@@ -37,7 +37,7 @@ public:
 ""));
         BlockButton = new QPushButton(MainMenu);
         BlockButton->setObjectName(QStringLiteral("BlockButton"));
-        BlockButton->setGeometry(QRect(520, 315, 284, 132));
+        BlockButton->setGeometry(QRect(498, 360, 284, 132));
         BlockButton->setMinimumSize(QSize(0, 40));
         BlockButton->setStyleSheet(QLatin1String("#BlockButton{\n"
 "    border: none;\n"
@@ -53,7 +53,7 @@ public:
 "}"));
         CodeButton = new QPushButton(MainMenu);
         CodeButton->setObjectName(QStringLiteral("CodeButton"));
-        CodeButton->setGeometry(QRect(880, 315, 284, 132));
+        CodeButton->setGeometry(QRect(786, 360, 284, 132));
         CodeButton->setMinimumSize(QSize(0, 40));
         CodeButton->setStyleSheet(QLatin1String("#CodeButton{\n"
 "    border: none;\n"
@@ -69,7 +69,7 @@ public:
 "}"));
         TheoryButton = new QPushButton(MainMenu);
         TheoryButton->setObjectName(QStringLiteral("TheoryButton"));
-        TheoryButton->setGeometry(QRect(120, 315, 284, 132));
+        TheoryButton->setGeometry(QRect(210, 360, 284, 132));
         TheoryButton->setMinimumSize(QSize(0, 40));
         TheoryButton->setBaseSize(QSize(0, 0));
         TheoryButton->setStyleSheet(QLatin1String("#TheoryButton{\n"
