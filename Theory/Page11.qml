@@ -11,6 +11,10 @@ Frame {
 
     Flickable {
         id: flickable
+        anchors.rightMargin: 15
+        anchors.bottomMargin: 15
+        anchors.leftMargin: 15
+        anchors.topMargin: 15
         anchors.fill: parent
         contentHeight: textt.height
 
@@ -28,14 +32,12 @@ Frame {
         }
         Image {
             id: butRes
-            x: 597
-            y: 487
             width: 163
             height: 69
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: -508
-            anchors.right: parent.right
-            anchors.rightMargin: 16
+            anchors.top: parent.top
+            anchors.topMargin: 124
+            anchors.left: parent.left
+            anchors.leftMargin: 0
 
             state: "normal"
             source: "controls/clear_normal.png"
