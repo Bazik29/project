@@ -27,16 +27,19 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     mainmenu.cpp \
     theoryscreen.cpp \
-    blocks.cpp
+    blocks.cpp \
+    pseudocode.cpp
 
 HEADERS  += \
     mainwindow.h \
     mainmenu.h \
     theoryscreen.h \
-    blocks.h
+    blocks.h \
+    pseudocode.h
 
 FORMS    += mainmenu.ui \
-    blocks.ui
+    blocks.ui \
+    pseudocode.ui
 
 RESOURCES +=
 
