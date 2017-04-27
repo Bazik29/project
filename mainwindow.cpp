@@ -4,13 +4,11 @@
 #include "mainmenu.h"
 #include "theoryscreen.h"
 #include "blocks.h"
-#include "pseudocode.h"
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     menuScreen(new MainMenu(this)),
     theoryScreen(new TheoryScreen(this)),
-    blockScreen(new Blocks(this)),
-    codeScreen(new PseudoCode(this))
+    blockScreen(new Blocks(this))
 {
     setWindowTitle("Click&Learn");
 
@@ -21,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     layout->addWidget(menuScreen, 0, 0, 1, 1);
     layout->addWidget(theoryScreen, 0, 0, 1, 1);
     layout->addWidget(blockScreen, 0, 0, 1, 1);
-    layout->addWidget(codeScreen, 0, 0, 1, 1);
+    //layout->addWidget(codeScreen, 0, 0, 1, 1);
 
 
     connect(menuScreen, SIGNAL(to_theory()), SLOT(show_theory()));
@@ -30,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
 
     connect(theoryScreen, SIGNAL(to_menu()), SLOT(show_menu()));
     connect(blockScreen, SIGNAL(to_menu()), SLOT(show_menu()));
-    connect(codeScreen, SIGNAL(to_menu()), SLOT(show_menu()));
+    //connect(codeScreen, SIGNAL(to_menu()), SLOT(show_menu()));
 
     show_menu();
 }
@@ -40,14 +38,14 @@ MainWindow::~MainWindow()
     delete menuScreen;
     delete theoryScreen;
     delete blockScreen;
-    delete codeScreen;
+    //delete codeScreen;
 }
 
 void MainWindow::show_menu()
 {
     theoryScreen->hide();
     blockScreen->hide();
-    codeScreen->hide();
+    //codeScreen->hide();
     menuScreen->show();
 }
 
@@ -55,22 +53,22 @@ void MainWindow::show_theory()
 {
     menuScreen->hide();
     blockScreen->hide();
-    codeScreen->hide();
+    //codeScreen->hide();
     theoryScreen->show();
 }
 
 void MainWindow::show_block()
 {
     menuScreen->hide();
-    codeScreen->hide();
+    //codeScreen->hide();
     theoryScreen->hide();
     blockScreen->show();
 }
 
 void MainWindow::show_code()
 {
-    menuScreen->hide();
-    theoryScreen->hide();
-    blockScreen->hide();
-    codeScreen->show();
+    //menuScreen->hide();
+    //theoryScreen->hide();
+    //blockScreen->hide();
+    //codeScreen->show();
 }

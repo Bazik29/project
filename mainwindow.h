@@ -6,7 +6,7 @@
 class MainMenu;
 class TheoryScreen;
 class Blocks;
-class PseudoCode;
+class CodeScreen;
 
 class MainWindow : public QWidget
 {
@@ -25,7 +25,7 @@ private:
     MainMenu *menuScreen = 0;
     TheoryScreen *theoryScreen = 0;
     Blocks *blockScreen = 0;
-    PseudoCode *codeScreen = 0;
+    //CodeScreen *codeScreen = 0;
 };
 
 #endif // MAINWINDOW_H
